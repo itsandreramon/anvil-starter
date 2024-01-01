@@ -1,0 +1,4 @@
+<resources>
+    <style name="Base.Theme.AnvilSample" parent="Theme.Material3.DayNight.NoActionBar"/>
+    <style name="Theme.AnvilSample" parent="Base.Theme.AnvilSample" />
+</resources>

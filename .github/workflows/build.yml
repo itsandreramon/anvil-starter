@@ -29,5 +29,8 @@ jobs:
         with:
           gradle-version: wrapper
 
+      - name: Run lint
+        run: ./gradlew lintDebug spotlessCheck
+
       - name: Build app
         run: ./gradlew build

@@ -2,18 +2,19 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.kotlin.parcelize)
     alias(libs.plugins.anvil)
 }
 
 android {
-    namespace = "com.example.anvil"
-    compileSdk = 34
+    namespace = "app.example"
+    compileSdk = Integer.parseInt(project.extra["compileSdk"].toString())
 
     defaultConfig {
-        applicationId = "com.example.anvil"
+        applicationId = "app.example"
 
-        minSdk = 24
-        targetSdk = 34
+        minSdk = Integer.parseInt(project.extra["minSdk"].toString())
+        targetSdk = Integer.parseInt(project.extra["targetSdk"].toString())
 
         versionCode = 1
         versionName = "1.0"
@@ -36,25 +37,52 @@ android {
     }
 
     buildFeatures {
+        compose = true
         buildConfig = true
     }
 
     kotlinOptions {
-        allWarningsAsErrors = true
-        jvmTarget = JavaVersion.VERSION_11.toString()
+        freeCompilerArgs += "-opt-in=androidx.compose.material3.ExperimentalMaterial3Api"
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
     }
 }
 
 dependencies {
+    implementation(project(":base"))
+
     implementation(libs.androidx.core)
     implementation(libs.androidx.activity)
-    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.viewmodel)
+    implementation(libs.androidx.viewmodel.compose)
+
+    implementation(libs.appyx.android)
+    implementation(libs.appyx.backstack)
+
     implementation(libs.anvil.annotations)
+
+    implementation(platform(libs.compose.bom))
+    implementation(libs.compose.ui)
+    implementation(libs.compose.runtime)
+    implementation(libs.compose.foundation)
+    implementation(libs.compose.material3)
+    implementation(libs.compose.material3.icons)
+
     implementation(libs.coroutines.core)
     implementation(libs.coroutines.android)
-    implementation(libs.material)
+
+    implementation(libs.coil.core)
+    implementation(libs.coil.compose)
+
     implementation(libs.timber)
+
     implementation(libs.dagger)
     kapt(libs.dagger.compiler)
+
+    testImplementation(libs.junit)
+    testImplementation(libs.turbine)
+    testImplementation(libs.coroutines.test)
 }

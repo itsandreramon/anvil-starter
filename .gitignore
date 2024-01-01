@@ -1,19 +1,18 @@
-*.iml
+# Gradle
 .gradle
-/local.properties
+/**/build
+local.properties
+captures
+
+# IntelliJ
 /.idea/caches
 /.idea/libraries
 /.idea/modules.xml
 /.idea/workspace.xml
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
-local.properties
+*.iml
 
-# Project exclude paths
-/app/build/
-/app/build/intermediates/javac/debug/classes/
+# General
+.DS_Store
+.externalNativeBuild

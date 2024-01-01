@@ -4,8 +4,7 @@ import com.example.anvil.App
 import com.example.anvil.AppCoroutineScope
 import com.example.anvil.session.UserCoroutineScope
 import com.example.anvil.session.UserSession
-import com.example.anvil.ui.login.LoginActivity
-import com.example.anvil.ui.main.MainActivity
+import com.example.anvil.ui.MainActivity
 import com.squareup.anvil.annotations.MergeComponent
 import com.squareup.anvil.annotations.MergeSubcomponent
 import com.squareup.anvil.annotations.optional.SingleIn
@@ -29,7 +28,7 @@ interface AppComponent {
 
     fun inject(app: App)
 
-    fun inject(loginActivity: LoginActivity)
+    fun inject(loginActivity: MainActivity)
 }
 
 @SingleIn(UserScope::class)
@@ -43,6 +42,4 @@ interface UserComponent {
             @BindsInstance userCoroutineScope: UserCoroutineScope,
         ): UserComponent
     }
-
-    fun inject(activity: MainActivity)
 }

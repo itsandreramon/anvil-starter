@@ -36,6 +36,7 @@ android {
     }
 
     buildFeatures {
+        compose = true
         buildConfig = true
     }
 
@@ -43,18 +44,38 @@ android {
         allWarningsAsErrors = true
         jvmTarget = JavaVersion.VERSION_11.toString()
     }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
+    }
 }
 
 dependencies {
     implementation(libs.androidx.core)
     implementation(libs.androidx.activity)
-    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.viewmodel)
+
     implementation(libs.anvil.annotations)
+
+    implementation(platform(libs.compose.bom))
+    implementation(libs.compose.runtime)
+    implementation(libs.compose.foundation)
+    implementation(libs.compose.material3)
+    implementation(libs.compose.material3.icons)
+
     implementation(libs.coroutines.core)
     implementation(libs.coroutines.android)
-    implementation(libs.material)
+
+    implementation(libs.coil.core)
+    implementation(libs.coil.compose)
+
     implementation(libs.timber)
+
     implementation(libs.dagger)
     kapt(libs.dagger.compiler)
+
+    testImplementation(libs.junit)
+    testImplementation(libs.turbine)
+    testImplementation(libs.coroutines.test)
 }

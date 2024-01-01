@@ -5,6 +5,13 @@ plugins {
     alias(libs.plugins.anvil) apply false
 }
 
+subprojects {
+    configurations.configureEach {
+        exclude(group = "androidx.appcompat")
+        exclude(group = "com.google.android.material", module = "material")
+    }
+}
+
 tasks.wrapper {
     distributionType = Wrapper.DistributionType.ALL
     version = libs.versions.gradle.get()

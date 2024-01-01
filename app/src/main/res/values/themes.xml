@@ -1,4 +1,5 @@
 <resources>
-    <style name="Base.Theme.AnvilSample" parent="Theme.Material3.DayNight.NoActionBar"/>
-    <style name="Theme.AnvilSample" parent="Base.Theme.AnvilSample" />
+    <style name="Theme.App.Base" parent="android:Theme.Material.NoActionBar"/>
+
+    <style name="Theme.App" parent="Theme.App.Base" />
 </resources>

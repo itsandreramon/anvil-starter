@@ -7,13 +7,13 @@ plugins {
 
 android {
     namespace = "com.example.anvil"
-    compileSdk = 34
+    compileSdk = Integer.parseInt(project.extra["compileSdk"].toString())
 
     defaultConfig {
         applicationId = "com.example.anvil"
 
-        minSdk = 24
-        targetSdk = 34
+        minSdk = Integer.parseInt(project.extra["minSdk"].toString())
+        targetSdk = Integer.parseInt(project.extra["targetSdk"].toString())
 
         versionCode = 1
         versionName = "1.0"

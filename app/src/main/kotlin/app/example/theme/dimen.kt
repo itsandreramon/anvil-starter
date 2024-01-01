@@ -1,4 +1,4 @@
-package com.example.anvil.theme
+package app.example.theme
 
 import androidx.compose.ui.unit.dp
 

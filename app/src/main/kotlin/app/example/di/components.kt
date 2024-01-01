@@ -1,10 +1,10 @@
-package com.example.anvil.di
+package app.example.di
 
-import com.example.anvil.App
-import com.example.anvil.AppCoroutineScope
-import com.example.anvil.session.UserCoroutineScope
-import com.example.anvil.session.UserSession
-import com.example.anvil.ui.MainActivity
+import app.example.App
+import app.example.AppCoroutineScope
+import app.example.session.UserCoroutineScope
+import app.example.session.UserSession
+import app.example.ui.MainActivity
 import com.squareup.anvil.annotations.MergeComponent
 import com.squareup.anvil.annotations.MergeSubcomponent
 import com.squareup.anvil.annotations.optional.SingleIn

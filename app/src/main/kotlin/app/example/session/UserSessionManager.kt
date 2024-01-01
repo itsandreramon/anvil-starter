@@ -1,8 +1,8 @@
-package com.example.anvil.session
+package app.example.session
 
-import com.example.anvil.App
-import com.example.anvil.di.AppScope
-import com.example.anvil.di.UserComponent
+import app.example.App
+import app.example.di.AppScope
+import app.example.di.UserComponent
 import com.squareup.anvil.annotations.ContributesBinding
 import com.squareup.anvil.annotations.optional.SingleIn
 import kotlinx.coroutines.CoroutineScope

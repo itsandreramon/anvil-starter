@@ -1,4 +1,4 @@
-package com.example.anvil.theme
+package app.example.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme

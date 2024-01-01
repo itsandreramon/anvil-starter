@@ -12,10 +12,6 @@ allprojects {
     tasks.withType<KotlinCompilationTask<*>>().configureEach {
         compilerOptions {
             allWarningsAsErrors = true
-
-            freeCompilerArgs.addAll(
-                "-opt-in=androidx.compose.material3.ExperimentalMaterial3Api"
-            )
         }
     }
 }

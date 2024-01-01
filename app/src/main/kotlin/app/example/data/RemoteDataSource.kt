@@ -1,8 +1,8 @@
-package com.example.anvil.data
+package app.example.data
 
-import com.example.anvil.di.UserScope
-import com.example.anvil.session.UserCoroutineScope
-import com.example.anvil.session.UserSession
+import app.example.session.UserCoroutineScope
+import app.example.session.UserSession
+import app.example.di.UserScope
 import com.squareup.anvil.annotations.optional.SingleIn
 import timber.log.Timber
 import javax.inject.Inject

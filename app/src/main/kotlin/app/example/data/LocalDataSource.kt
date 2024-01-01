@@ -1,7 +1,7 @@
-package com.example.anvil.data
+package app.example.data
 
-import com.example.anvil.AppCoroutineScope
-import com.example.anvil.di.AppScope
+import app.example.AppCoroutineScope
+import app.example.di.AppScope
 import com.squareup.anvil.annotations.optional.SingleIn
 import timber.log.Timber
 import javax.inject.Inject

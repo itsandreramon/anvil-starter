@@ -1,7 +1,7 @@
-package com.example.anvil.di
+package app.example.di
 
-import com.example.anvil.App
-import com.example.anvil.ui.MainActivity
+import app.example.App
+import app.example.ui.MainActivity
 
 fun inject(activity: MainActivity) {
     (activity.applicationContext as App)

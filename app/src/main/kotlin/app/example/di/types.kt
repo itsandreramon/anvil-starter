@@ -1,4 +1,4 @@
-package com.example.anvil.di
+package app.example.di
 
 typealias DaggerSet<T> = @JvmSuppressWildcards Set<T>
 

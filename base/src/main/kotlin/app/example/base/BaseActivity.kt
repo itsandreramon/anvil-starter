@@ -1,7 +1,13 @@
 package app.example.base
 
-import androidx.core.app.ComponentActivity
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.enableEdgeToEdge
 
-open class BaseActivity : ComponentActivity() {
+abstract class BaseActivity : ComponentActivity() {
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        enableEdgeToEdge()
+        super.onCreate(savedInstanceState)
+    }
 }

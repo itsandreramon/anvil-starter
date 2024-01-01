@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.anvil"
+    namespace = "app.example"
     compileSdk = Integer.parseInt(project.extra["compileSdk"].toString())
 
     defaultConfig {
-        applicationId = "com.example.anvil"
+        applicationId = "app.example"
 
         minSdk = Integer.parseInt(project.extra["minSdk"].toString())
         targetSdk = Integer.parseInt(project.extra["targetSdk"].toString())
@@ -42,6 +42,7 @@ android {
 
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_11.toString()
+        freeCompilerArgs += "-opt-in=androidx.compose.material3.ExperimentalMaterial3Api"
     }
 
     composeOptions {
@@ -50,6 +51,8 @@ android {
 }
 
 dependencies {
+    implementation(project(":base"))
+
     implementation(libs.androidx.core)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.activity.compose)

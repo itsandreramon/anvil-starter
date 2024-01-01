@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
-        android:name=".App"
+        android:name="app.example.App"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -10,7 +10,7 @@
         android:theme="@style/Theme.App">
 
         <activity
-            android:name=".ui.MainActivity"
+            android:name="app.example.ui.MainActivity"
             android:exported="true">
 
             <intent-filter>

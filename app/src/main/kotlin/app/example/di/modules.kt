@@ -1,6 +1,6 @@
-package com.example.anvil.di
+package app.example.di
 
-import com.example.anvil.BuildConfig
+import app.example.BuildConfig
 import com.squareup.anvil.annotations.ContributesTo
 import dagger.Module
 import dagger.Provides

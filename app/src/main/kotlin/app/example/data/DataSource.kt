@@ -1,4 +1,4 @@
-package com.example.anvil.data
+package app.example.data
 
 interface DataSource {
     fun getData(): String

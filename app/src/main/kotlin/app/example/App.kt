@@ -1,11 +1,11 @@
-package com.example.anvil
+package app.example
 
 import android.app.Application
-import com.example.anvil.di.AppComponent
-import com.example.anvil.di.DaggerAppComponent
-import com.example.anvil.di.DaggerSet
-import com.example.anvil.di.InitializerFunction
-import com.example.anvil.session.UserSessionManager
+import app.example.di.AppComponent
+import app.example.di.DaggerAppComponent
+import app.example.di.DaggerSet
+import app.example.di.InitializerFunction
+import app.example.session.UserSessionManager
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 import javax.inject.Inject

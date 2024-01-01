@@ -1,8 +1,8 @@
-package com.example.anvil.ui.login
+package app.example.ui.login
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.anvil.data.LocalDataSource
+import app.example.data.LocalDataSource
 import timber.log.Timber
 import javax.inject.Inject
 

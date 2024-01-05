@@ -14,6 +14,7 @@ import androidx.compose.runtime.produceState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import app.example.ui.theme.padding_medium
+import app.example.ui.theme.padding_small
 
 @Composable
 fun HomeScreen(viewModel: HomeViewModel, onLogout: () -> Unit) {
@@ -23,12 +24,8 @@ fun HomeScreen(viewModel: HomeViewModel, onLogout: () -> Unit) {
 
     Scaffold(
         content = { padding ->
-            Box(
-                modifier = Modifier
-                    .padding(padding)
-                    .padding(horizontal = padding_medium),
-            ) {
-                Column {
+            Box(modifier = Modifier.padding(padding)) {
+                Column(modifier = Modifier.padding(padding_medium, padding_small)) {
                     Text(text = data)
                     Spacer(modifier = Modifier.height(4.dp))
                     Button(onClick = onLogout) {

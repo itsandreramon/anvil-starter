@@ -2,7 +2,7 @@ package app.example.navigation.home.target
 
 import app.example.ui.screens.home.HomeViewModel
 import app.example.ui.util.ViewModelStoreOwnerProvider
-import com.bumble.appyx.navigation.builder.Builder
+import com.bumble.appyx.navigation.builder.SimpleBuilder
 import com.bumble.appyx.navigation.modality.BuildContext
 import com.bumble.appyx.navigation.node.Node
 import com.bumble.appyx.navigation.store.getRetainedInstance
@@ -10,12 +10,13 @@ import com.bumble.appyx.navigation.store.getRetainedInstance
 class HomeNodeBuilder(
     private val onLogout: () -> Unit,
     private val viewModelFactory: HomeViewModel.Factory,
-) : Builder<String>() {
+) : SimpleBuilder() {
 
-    override fun build(buildContext: BuildContext, payload: String): Node {
+    override fun build(buildContext: BuildContext): Node {
+        val viewModelStoreKey = buildContext.identifier
         val viewModelStoreOwner = buildContext.getRetainedInstance(
-            factory = { ViewModelStoreOwnerProvider.getOwner(payload) },
-            disposer = { ViewModelStoreOwnerProvider.removeOwner(payload) },
+            factory = { ViewModelStoreOwnerProvider.getOwner(viewModelStoreKey) },
+            disposer = { ViewModelStoreOwnerProvider.removeOwner(viewModelStoreKey) },
         )
 
         return HomeNode(

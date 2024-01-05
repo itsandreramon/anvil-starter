@@ -71,7 +71,7 @@ class LoginRouting(
                     userSessionManager.createSession(id)
                     backStack.replace(LoginTarget.Home)
                 },
-            ).build(buildContext, "login")
+            ).build(buildContext)
 
             LoginTarget.Home -> HomeRouting(
                 buildContext = buildContext,

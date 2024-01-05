@@ -26,6 +26,8 @@ fun AppTheme(content: @Composable () -> Unit) {
         else -> LightColorScheme
     }
 
+
+
     MaterialTheme(
         colorScheme = colorScheme,
         content = content,

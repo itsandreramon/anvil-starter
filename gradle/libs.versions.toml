@@ -13,7 +13,6 @@ compose-compiler = "1.5.7"
 
 appyx = "2.0.0-alpha09"
 coroutines = "1.7.3"
-circuit = "0.18.0"
 coil = "2.5.0"
 dagger = "2.50"
 anvil = "2.4.8"
@@ -34,13 +33,13 @@ spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
 [libraries]
 androidx-activity = { module = "androidx.activity:activity-ktx", version.ref = "androidx-activity" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity" }
+androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidx-appcompat" }
 androidx-core = { module = "androidx.core:core-ktx", version.ref = "androidx-core" }
 androidx-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "androidx-lifecycle" }
 androidx-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "androidx-lifecycle" }
 
 appyx-android = { module = "com.bumble.appyx:appyx-navigation-android", version.ref = "appyx" }
 appyx-backstack = { module = "com.bumble.appyx:backstack-android", version.ref = "appyx" }
-appyx-material = { module = "com.bumble.appyx:utils-material3-android", version.ref = "appyx" }
 
 compose-bom = { module = "androidx.compose:compose-bom", version.ref = "compose-bom" }
 compose-ui = { module = "androidx.compose.ui:ui" }
@@ -52,8 +51,6 @@ compose-material3-icons = { module = "androidx.compose.material:material-icons-e
 coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
 coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
 coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
-
-circuit-foundation = { module = "com.slack.circuit:circuit-foundation", version.ref = "circuit" }
 
 coil-core = { module = "io.coil-kt:coil", version.ref = "coil" }
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }

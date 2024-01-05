@@ -51,6 +51,7 @@ dependencies {
     implementation(project(":ui"))
 
     implementation(libs.androidx.core)
+    implementation(libs.androidx.appcompat)
 
     implementation(libs.coroutines.core)
     implementation(libs.coroutines.android)

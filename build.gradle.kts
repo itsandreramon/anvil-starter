@@ -23,7 +23,7 @@ configure<SpotlessExtension> {
     )
   }
   kotlinGradle {
-    target("*.gradle.kts")
+    target("*.kts")
     ktlint()
   }
 }

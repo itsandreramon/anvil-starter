@@ -9,7 +9,7 @@ import com.bumble.appyx.navigation.store.getRetainedInstance
 
 class HomeNodeBuilder(
     private val onLogout: () -> Unit,
-    private val viewModelFactory: HomeViewModel.Factory
+    private val viewModelFactory: HomeViewModel.Factory,
 ) : Builder<String>() {
 
     override fun build(buildContext: BuildContext, payload: String): Node {

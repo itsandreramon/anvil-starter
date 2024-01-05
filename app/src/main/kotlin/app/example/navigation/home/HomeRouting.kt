@@ -6,7 +6,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import app.example.di.UserSessionManager
 import app.example.di.inject
-import app.example.navigation.home.target.HomeNode
 import app.example.navigation.home.target.HomeNodeBuilder
 import app.example.navigation.login.LoginRouting
 import app.example.ui.screens.home.HomeViewModel

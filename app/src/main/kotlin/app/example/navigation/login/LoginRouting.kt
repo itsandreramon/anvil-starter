@@ -7,7 +7,6 @@ import androidx.compose.ui.Modifier
 import app.example.di.UserSessionManager
 import app.example.di.inject
 import app.example.navigation.home.HomeRouting
-import app.example.navigation.login.target.LoginNode
 import app.example.navigation.login.target.LoginNodeBuilder
 import app.example.ui.screens.login.LoginViewModel
 import com.bumble.appyx.components.backstack.BackStack

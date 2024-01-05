@@ -9,7 +9,7 @@ import com.bumble.appyx.navigation.store.getRetainedInstance
 
 class LoginNodeBuilder(
     private val onLogin: (id: String) -> Unit,
-    private val viewModelFactory: LoginViewModel.Factory
+    private val viewModelFactory: LoginViewModel.Factory,
 ) : Builder<String>() {
 
     override fun build(buildContext: BuildContext, payload: String): Node {

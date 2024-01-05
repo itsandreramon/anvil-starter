@@ -26,20 +26,9 @@ private val LightColorScheme = lightColorScheme(
 @Composable
 fun AppTheme(content: @Composable () -> Unit) {
     val darkTheme = isSystemInDarkTheme()
-    val view = LocalView.current
-
     val colorScheme = when {
         darkTheme -> DarkColorScheme
         else -> LightColorScheme
-    }
-
-    if (!view.isInEditMode) {
-        SideEffect {
-            val window = (view.context as Activity).window
-            window.statusBarColor = colorScheme.primary.toArgb()
-            val insetsController = WindowCompat.getInsetsController(window, view)
-            insetsController.isAppearanceLightStatusBars = darkTheme
-        }
     }
 
     MaterialTheme(

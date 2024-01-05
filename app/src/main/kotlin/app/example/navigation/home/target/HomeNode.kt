@@ -22,6 +22,7 @@ class HomeNode(
             viewModelStoreOwner = viewModelStoreOwner,
             factory = viewModelFactory,
         )
+
         HomeScreen(viewModel, onLogout)
     }
 }

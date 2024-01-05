@@ -7,9 +7,9 @@ import androidx.compose.ui.Modifier
 import app.example.di.UserSessionManager
 import app.example.di.inject
 import app.example.navigation.home.target.HomeNode
+import app.example.navigation.home.target.HomeNodeBuilder
 import app.example.navigation.login.LoginRouting
 import app.example.ui.screens.home.HomeViewModel
-import app.example.ui.util.ViewModelStoreOwnerNode
 import com.bumble.appyx.components.backstack.BackStack
 import com.bumble.appyx.components.backstack.BackStackModel
 import com.bumble.appyx.components.backstack.operation.replace
@@ -17,6 +17,7 @@ import com.bumble.appyx.components.backstack.ui.fader.BackStackFader
 import com.bumble.appyx.navigation.composable.AppyxComponent
 import com.bumble.appyx.navigation.modality.BuildContext
 import com.bumble.appyx.navigation.node.Node
+import com.bumble.appyx.navigation.node.ParentNode
 import javax.inject.Inject
 import kotlinx.parcelize.Parcelize
 import timber.log.Timber
@@ -40,7 +41,7 @@ class HomeRouting(
         ),
         visualisation = { BackStackFader(it) },
     ),
-) : ViewModelStoreOwnerNode<HomeTarget>(appyxComponent = backStack, buildContext = buildContext) {
+) : ParentNode<HomeTarget>(appyxComponent = backStack, buildContext = buildContext) {
 
     @Inject lateinit var userSessionManager: UserSessionManager
 
@@ -65,15 +66,13 @@ class HomeRouting(
 
     override fun resolve(interactionTarget: HomeTarget, buildContext: BuildContext): Node {
         return when (interactionTarget) {
-            HomeTarget.Home -> HomeNode(
-                buildContext = buildContext,
+            HomeTarget.Home -> HomeNodeBuilder(
                 viewModelFactory = viewModelFactory,
-                viewModelStoreOwner = viewModelStoreOwner,
                 onLogout = {
                     userSessionManager.resetSession()
                     backStack.replace(HomeTarget.Login)
                 },
-            )
+            ).build(buildContext, "home")
 
             HomeTarget.Login -> LoginRouting(buildContext, applicationContext)
         }

@@ -9,10 +9,10 @@ import com.bumble.appyx.navigation.platform.AndroidLifecycle
 
 @Composable
 fun AppContainer(integrationPoint: IntegrationPoint) {
-    val context = LocalContext.current.applicationContext
-    val lifecycle = LocalLifecycleOwner.current.lifecycle
+  val context = LocalContext.current.applicationContext
+  val lifecycle = LocalLifecycleOwner.current.lifecycle
 
-    NodeHost(AndroidLifecycle(lifecycle), integrationPoint) { buildContext ->
-        AppNode(buildContext, context)
-    }
+  NodeHost(AndroidLifecycle(lifecycle), integrationPoint) { buildContext ->
+    AppNode(buildContext, context)
+  }
 }

@@ -16,36 +16,36 @@ import kotlinx.parcelize.Parcelize
 
 sealed class AppTarget : Parcelable {
 
-    @Parcelize
-    data object Login : AppTarget()
+  @Parcelize
+  data object Login : AppTarget()
 }
 
 class AppNode(
-    buildContext: BuildContext,
-    private val applicationContext: Context,
-    private val backStack: BackStack<AppTarget> = BackStack(
-        model = BackStackModel(
-            initialTarget = AppTarget.Login,
-            savedStateMap = buildContext.savedStateMap,
-        ),
-        visualisation = { BackStackFader(it) },
+  buildContext: BuildContext,
+  private val applicationContext: Context,
+  private val backStack: BackStack<AppTarget> = BackStack(
+    model = BackStackModel(
+      initialTarget = AppTarget.Login,
+      savedStateMap = buildContext.savedStateMap,
     ),
+    visualisation = { BackStackFader(it) },
+  ),
 ) : ParentNode<AppTarget>(appyxComponent = backStack, buildContext = buildContext) {
 
-    @Composable
-    override fun View(modifier: Modifier) {
-        AppyxComponent(
-            appyxComponent = backStack,
-            modifier = Modifier,
-        )
-    }
+  @Composable
+  override fun View(modifier: Modifier) {
+    AppyxComponent(
+      appyxComponent = backStack,
+      modifier = Modifier,
+    )
+  }
 
-    override fun resolve(interactionTarget: AppTarget, buildContext: BuildContext): Node {
-        return when (interactionTarget) {
-            AppTarget.Login -> LoginRouting(
-                buildContext,
-                applicationContext,
-            )
-        }
+  override fun resolve(interactionTarget: AppTarget, buildContext: BuildContext): Node {
+    return when (interactionTarget) {
+      AppTarget.Login -> LoginRouting(
+        buildContext,
+        applicationContext,
+      )
     }
+  }
 }

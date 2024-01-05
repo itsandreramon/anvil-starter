@@ -8,15 +8,15 @@ import timber.log.Timber
 
 @SingleIn(AppScope::class)
 class LocalDataSource @Inject constructor(
-    coroutineScope: AppCoroutineScope,
+  coroutineScope: AppCoroutineScope,
 ) : DataSource {
 
-    init {
-        Timber.d("Creating data source: $this")
-        Timber.d("Got coroutine scope: $coroutineScope")
-    }
+  init {
+    Timber.d("Creating data source: $this")
+    Timber.d("Got coroutine scope: $coroutineScope")
+  }
 
-    override fun getData(): String {
-        return "No user session found"
-    }
+  override fun getData(): String {
+    return "No user session found"
+  }
 }

@@ -13,23 +13,23 @@ import kotlinx.coroutines.SupervisorJob
 
 class App : Application() {
 
-    @Inject lateinit var userSessionManager: UserSessionManager
+  @Inject lateinit var userSessionManager: UserSessionManager
 
-    @Inject lateinit var initializers: DaggerSet<InitializerFunction>
+  @Inject lateinit var initializers: DaggerSet<InitializerFunction>
 
-    private val appCoroutineScope: AppCoroutineScope by lazy {
-        AppCoroutineScope(CoroutineScope(SupervisorJob()))
-    }
+  private val appCoroutineScope: AppCoroutineScope by lazy {
+    AppCoroutineScope(CoroutineScope(SupervisorJob()))
+  }
 
-    val appComponent: AppComponent by lazy {
-        DaggerAppComponent
-            .factory()
-            .create(this, appCoroutineScope)
-    }
+  val appComponent: AppComponent by lazy {
+    DaggerAppComponent
+      .factory()
+      .create(this, appCoroutineScope)
+  }
 
-    override fun onCreate() {
-        super.onCreate()
-        appComponent.inject(this)
-        initializers.forEach { it() }
-    }
+  override fun onCreate() {
+    super.onCreate()
+    appComponent.inject(this)
+    initializers.forEach { it() }
+  }
 }

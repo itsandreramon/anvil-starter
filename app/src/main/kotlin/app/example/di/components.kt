@@ -25,34 +25,34 @@ import timber.log.Timber
 @MergeComponent(AppScope::class)
 interface AppComponent {
 
-    @Component.Factory
-    interface Factory {
-        fun create(
-            @BindsInstance app: App,
-            @BindsInstance appCoroutineScope: AppCoroutineScope,
-        ): AppComponent
-    }
+  @Component.Factory
+  interface Factory {
+    fun create(
+      @BindsInstance app: App,
+      @BindsInstance appCoroutineScope: AppCoroutineScope,
+    ): AppComponent
+  }
 
-    fun userComponentFactory(): UserComponent.Factory
+  fun userComponentFactory(): UserComponent.Factory
 
-    fun inject(app: App)
+  fun inject(app: App)
 
-    fun inject(loginRouting: LoginRouting)
+  fun inject(loginRouting: LoginRouting)
 }
 
 @SingleIn(UserScope::class)
 @MergeSubcomponent(UserScope::class)
 interface UserComponent {
 
-    @Subcomponent.Factory
-    interface Factory {
-        fun create(
-            @BindsInstance userSession: UserSession,
-            @BindsInstance userCoroutineScope: UserCoroutineScope,
-        ): UserComponent
-    }
+  @Subcomponent.Factory
+  interface Factory {
+    fun create(
+      @BindsInstance userSession: UserSession,
+      @BindsInstance userCoroutineScope: UserCoroutineScope,
+    ): UserComponent
+  }
 
-    fun inject(homeRouting: HomeRouting)
+  fun inject(homeRouting: HomeRouting)
 }
 
 /**
@@ -67,46 +67,46 @@ interface UserComponent {
  */
 interface UserSessionManager {
 
-    val userComponent: UserComponent?
+  val userComponent: UserComponent?
 
-    fun resetSession()
+  fun resetSession()
 
-    fun createSession(id: String)
+  fun createSession(id: String)
 
-    @SingleIn(AppScope::class)
-    @ContributesBinding(AppScope::class)
-    class Impl @Inject constructor(
-        private val app: App,
-    ) : UserSessionManager {
+  @SingleIn(AppScope::class)
+  @ContributesBinding(AppScope::class)
+  class Impl @Inject constructor(
+    private val app: App,
+  ) : UserSessionManager {
 
-        private var _userCoroutineScope: UserCoroutineScope? = null
+    private var _userCoroutineScope: UserCoroutineScope? = null
 
-        private val userCoroutineScope: UserCoroutineScope
-            get() = _userCoroutineScope ?: createUserCoroutineScope()
+    private val userCoroutineScope: UserCoroutineScope
+      get() = _userCoroutineScope ?: createUserCoroutineScope()
 
-        override var userComponent: UserComponent? = null
-            private set
+    override var userComponent: UserComponent? = null
+      private set
 
-        override fun resetSession() {
-            Timber.d("reset session...")
-            _userCoroutineScope?.cancel()
-            _userCoroutineScope = null
-            userComponent = null
-        }
-
-        override fun createSession(id: String) {
-            Timber.d("create session...")
-            val session = UserSession(id)
-
-            userComponent = app.appComponent
-                .userComponentFactory()
-                .create(session, userCoroutineScope)
-        }
-
-        private fun createUserCoroutineScope(): UserCoroutineScope {
-            return _userCoroutineScope ?: UserCoroutineScope(
-                CoroutineScope(SupervisorJob()),
-            ).also { _userCoroutineScope = it }
-        }
+    override fun resetSession() {
+      Timber.d("reset session...")
+      _userCoroutineScope?.cancel()
+      _userCoroutineScope = null
+      userComponent = null
     }
+
+    override fun createSession(id: String) {
+      Timber.d("create session...")
+      val session = UserSession(id)
+
+      userComponent = app.appComponent
+        .userComponentFactory()
+        .create(session, userCoroutineScope)
+    }
+
+    private fun createUserCoroutineScope(): UserCoroutineScope {
+      return _userCoroutineScope ?: UserCoroutineScope(
+        CoroutineScope(SupervisorJob()),
+      ).also { _userCoroutineScope = it }
+    }
+  }
 }

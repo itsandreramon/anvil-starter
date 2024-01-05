@@ -8,22 +8,22 @@ import com.bumble.appyx.navigation.node.Node
 import com.bumble.appyx.navigation.store.getRetainedInstance
 
 class HomeNodeBuilder(
-    private val onLogout: () -> Unit,
-    private val viewModelFactory: HomeViewModel.Factory,
+  private val onLogout: () -> Unit,
+  private val viewModelFactory: HomeViewModel.Factory,
 ) : SimpleBuilder() {
 
-    override fun build(buildContext: BuildContext): Node {
-        val viewModelStoreKey = buildContext.identifier
-        val viewModelStoreOwner = buildContext.getRetainedInstance(
-            factory = { ViewModelStoreOwnerProvider.getOwner(viewModelStoreKey) },
-            disposer = { ViewModelStoreOwnerProvider.removeOwner(viewModelStoreKey) },
-        )
+  override fun build(buildContext: BuildContext): Node {
+    val viewModelStoreKey = buildContext.identifier
+    val viewModelStoreOwner = buildContext.getRetainedInstance(
+      factory = { ViewModelStoreOwnerProvider.getOwner(viewModelStoreKey) },
+      disposer = { ViewModelStoreOwnerProvider.removeOwner(viewModelStoreKey) },
+    )
 
-        return HomeNode(
-            buildContext = buildContext,
-            onLogout = onLogout,
-            viewModelFactory = viewModelFactory,
-            viewModelStoreOwner = viewModelStoreOwner,
-        )
-    }
+    return HomeNode(
+      buildContext = buildContext,
+      onLogout = onLogout,
+      viewModelFactory = viewModelFactory,
+      viewModelStoreOwner = viewModelStoreOwner,
+    )
+  }
 }

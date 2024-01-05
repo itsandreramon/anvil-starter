@@ -23,60 +23,60 @@ import timber.log.Timber
 
 sealed class LoginTarget : Parcelable {
 
-    @Parcelize
-    data object Login : LoginTarget()
+  @Parcelize
+  data object Login : LoginTarget()
 
-    @Parcelize
-    data object Home : LoginTarget()
+  @Parcelize
+  data object Home : LoginTarget()
 }
 
 class LoginRouting(
-    buildContext: BuildContext,
-    val applicationContext: Context,
-    private val backStack: BackStack<LoginTarget> = BackStack(
-        model = BackStackModel(
-            initialTarget = LoginTarget.Login,
-            savedStateMap = buildContext.savedStateMap,
-        ),
-        visualisation = { BackStackFader(it) },
+  buildContext: BuildContext,
+  val applicationContext: Context,
+  private val backStack: BackStack<LoginTarget> = BackStack(
+    model = BackStackModel(
+      initialTarget = LoginTarget.Login,
+      savedStateMap = buildContext.savedStateMap,
     ),
+    visualisation = { BackStackFader(it) },
+  ),
 ) : ParentNode<LoginTarget>(appyxComponent = backStack, buildContext = buildContext) {
 
-    @Inject lateinit var userSessionManager: UserSessionManager
+  @Inject lateinit var userSessionManager: UserSessionManager
 
-    @Inject lateinit var viewModelFactory: LoginViewModel.Factory
+  @Inject lateinit var viewModelFactory: LoginViewModel.Factory
 
-    init {
-        inject(this)
+  init {
+    inject(this)
+  }
+
+  override fun onBuilt() {
+    super.onBuilt()
+    Timber.d("onBuilt LoginRouting")
+  }
+
+  @Composable
+  override fun View(modifier: Modifier) {
+    AppyxComponent(
+      appyxComponent = backStack,
+      modifier = Modifier,
+    )
+  }
+
+  override fun resolve(interactionTarget: LoginTarget, buildContext: BuildContext): Node {
+    return when (interactionTarget) {
+      LoginTarget.Login -> LoginNodeBuilder(
+        viewModelFactory = viewModelFactory,
+        onLogin = { id ->
+          userSessionManager.createSession(id)
+          backStack.replace(LoginTarget.Home)
+        },
+      ).build(buildContext)
+
+      LoginTarget.Home -> HomeRouting(
+        buildContext = buildContext,
+        applicationContext = applicationContext,
+      )
     }
-
-    override fun onBuilt() {
-        super.onBuilt()
-        Timber.d("onBuilt LoginRouting")
-    }
-
-    @Composable
-    override fun View(modifier: Modifier) {
-        AppyxComponent(
-            appyxComponent = backStack,
-            modifier = Modifier,
-        )
-    }
-
-    override fun resolve(interactionTarget: LoginTarget, buildContext: BuildContext): Node {
-        return when (interactionTarget) {
-            LoginTarget.Login -> LoginNodeBuilder(
-                viewModelFactory = viewModelFactory,
-                onLogin = { id ->
-                    userSessionManager.createSession(id)
-                    backStack.replace(LoginTarget.Home)
-                },
-            ).build(buildContext)
-
-            LoginTarget.Home -> HomeRouting(
-                buildContext = buildContext,
-                applicationContext = applicationContext,
-            )
-        }
-    }
+  }
 }

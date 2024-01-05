@@ -9,14 +9,14 @@ import com.bumble.appyx.navigation.integration.NodeActivity
 
 class MainActivity : NodeActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        enableEdgeToEdge()
-        super.onCreate(savedInstanceState)
+  override fun onCreate(savedInstanceState: Bundle?) {
+    enableEdgeToEdge()
+    super.onCreate(savedInstanceState)
 
-        setContent {
-            AppTheme {
-                AppContainer(appyxV2IntegrationPoint)
-            }
-        }
+    setContent {
+      AppTheme {
+        AppContainer(appyxV2IntegrationPoint)
+      }
     }
+  }
 }

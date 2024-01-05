@@ -18,21 +18,21 @@ import app.example.ui.theme.padding_small
 
 @Composable
 fun HomeScreen(viewModel: HomeViewModel, onLogout: () -> Unit) {
-    val data by produceState(initialValue = "") {
-        value = viewModel.getData()
-    }
+  val data by produceState(initialValue = "") {
+    value = viewModel.getData()
+  }
 
-    Scaffold(
-        content = { padding ->
-            Box(modifier = Modifier.padding(padding)) {
-                Column(modifier = Modifier.padding(padding_medium, padding_small)) {
-                    Text(text = data)
-                    Spacer(modifier = Modifier.height(4.dp))
-                    Button(onClick = onLogout) {
-                        Text(text = "Logout")
-                    }
-                }
-            }
-        },
-    )
+  Scaffold(
+    content = { padding ->
+      Box(modifier = Modifier.padding(padding)) {
+        Column(modifier = Modifier.padding(padding_medium, padding_small)) {
+          Text(text = data)
+          Spacer(modifier = Modifier.height(4.dp))
+          Button(onClick = onLogout) {
+            Text(text = "Logout")
+          }
+        }
+      }
+    },
+  )
 }

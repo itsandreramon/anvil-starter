@@ -10,19 +10,19 @@ import com.bumble.appyx.navigation.modality.BuildContext
 import com.bumble.appyx.navigation.node.Node
 
 class HomeNode(
-    buildContext: BuildContext,
-    private val onLogout: () -> Unit,
-    private val viewModelFactory: HomeViewModel.Factory,
-    private val viewModelStoreOwner: ViewModelStoreOwner,
+  buildContext: BuildContext,
+  private val onLogout: () -> Unit,
+  private val viewModelFactory: HomeViewModel.Factory,
+  private val viewModelStoreOwner: ViewModelStoreOwner,
 ) : Node(buildContext) {
 
-    @Composable
-    override fun View(modifier: Modifier) {
-        val viewModel = viewModel<HomeViewModel>(
-            viewModelStoreOwner = viewModelStoreOwner,
-            factory = viewModelFactory,
-        )
+  @Composable
+  override fun View(modifier: Modifier) {
+    val viewModel = viewModel<HomeViewModel>(
+      viewModelStoreOwner = viewModelStoreOwner,
+      factory = viewModelFactory,
+    )
 
-        HomeScreen(viewModel, onLogout)
-    }
+    HomeScreen(viewModel, onLogout)
+  }
 }

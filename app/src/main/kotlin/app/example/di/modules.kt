@@ -12,11 +12,11 @@ import timber.log.Timber
 @ContributesTo(AppScope::class)
 object AppModule {
 
-    @Provides
-    @IntoSet
-    fun timberInitializer(): () -> Unit = {
-        if (BuildConfig.DEBUG) {
-            Timber.plant(Timber.DebugTree())
-        }
+  @Provides
+  @IntoSet
+  fun timberInitializer(): () -> Unit = {
+    if (BuildConfig.DEBUG) {
+      Timber.plant(Timber.DebugTree())
     }
+  }
 }

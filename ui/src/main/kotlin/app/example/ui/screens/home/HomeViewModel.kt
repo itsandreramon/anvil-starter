@@ -7,23 +7,23 @@ import javax.inject.Inject
 import timber.log.Timber
 
 class HomeViewModel(
-    private val remoteDataSource: RemoteDataSource,
+  private val remoteDataSource: RemoteDataSource,
 ) : ViewModel() {
 
-    init {
-        Timber.d("Created home view model: $this")
-    }
+  init {
+    Timber.d("Created home view model: $this")
+  }
 
-    fun getData(): String {
-        return remoteDataSource.getData()
-    }
+  fun getData(): String {
+    return remoteDataSource.getData()
+  }
 
-    @Suppress("UNCHECKED_CAST")
-    class Factory @Inject constructor(
-        private val remoteDataSource: RemoteDataSource,
-    ) : ViewModelProvider.Factory {
-        override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return HomeViewModel(remoteDataSource) as T
-        }
+  @Suppress("UNCHECKED_CAST")
+  class Factory @Inject constructor(
+    private val remoteDataSource: RemoteDataSource,
+  ) : ViewModelProvider.Factory {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+      return HomeViewModel(remoteDataSource) as T
     }
+  }
 }

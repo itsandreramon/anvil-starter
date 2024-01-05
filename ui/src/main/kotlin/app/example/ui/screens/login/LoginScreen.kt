@@ -24,32 +24,32 @@ import app.example.ui.theme.padding_small
 
 @Composable
 fun LoginScreen(viewModel: LoginViewModel, onLogin: (String) -> Unit) {
-    val data by produceState(initialValue = "") {
-        value = viewModel.getData()
-    }
+  val data by produceState(initialValue = "") {
+    value = viewModel.getData()
+  }
 
-    Scaffold(
-        content = { padding ->
-            Box(modifier = Modifier.padding(padding)) {
-                Column(modifier = Modifier.padding(padding_medium, padding_small)) {
-                    Text(text = data)
-                    Spacer(modifier = Modifier.height(4.dp))
-                    var textFieldState by remember {
-                        mutableStateOf(TextFieldValue(""))
-                    }
-                    TextField(
-                        value = textFieldState,
-                        onValueChange = {
-                            textFieldState = it
-                        },
-                        modifier = Modifier.fillMaxWidth(),
-                    )
-                    Spacer(modifier = Modifier.height(4.dp))
-                    Button(onClick = { onLogin(textFieldState.text) }) {
-                        Text(text = "Login")
-                    }
-                }
-            }
-        },
-    )
+  Scaffold(
+    content = { padding ->
+      Box(modifier = Modifier.padding(padding)) {
+        Column(modifier = Modifier.padding(padding_medium, padding_small)) {
+          Text(text = data)
+          Spacer(modifier = Modifier.height(4.dp))
+          var textFieldState by remember {
+            mutableStateOf(TextFieldValue(""))
+          }
+          TextField(
+            value = textFieldState,
+            onValueChange = {
+              textFieldState = it
+            },
+            modifier = Modifier.fillMaxWidth(),
+          )
+          Spacer(modifier = Modifier.height(4.dp))
+          Button(onClick = { onLogin(textFieldState.text) }) {
+            Text(text = "Login")
+          }
+        }
+      }
+    },
+  )
 }

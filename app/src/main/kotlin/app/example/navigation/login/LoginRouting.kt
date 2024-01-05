@@ -4,11 +4,11 @@ import android.content.Context
 import android.os.Parcelable
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import app.example.di.UserSessionManager
 import app.example.di.inject
 import app.example.navigation.home.HomeRouting
 import app.example.navigation.login.target.LoginNode
-import app.example.session.UserSessionManager
-import app.example.ui.login.LoginViewModel
+import app.example.ui.screens.login.LoginViewModel
 import com.bumble.appyx.components.backstack.BackStack
 import com.bumble.appyx.components.backstack.BackStackModel
 import com.bumble.appyx.components.backstack.operation.replace

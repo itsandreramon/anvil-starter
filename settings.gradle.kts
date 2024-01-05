@@ -40,4 +40,5 @@ gradleEnterprise {
 }
 
 include(":app")
-include(":base")
+include(":core")
+include(":ui")

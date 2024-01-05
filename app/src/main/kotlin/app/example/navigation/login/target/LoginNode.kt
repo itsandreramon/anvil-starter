@@ -3,8 +3,8 @@ package app.example.navigation.login.target
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
-import app.example.ui.login.LoginScreen
-import app.example.ui.login.LoginViewModel
+import app.example.ui.screens.login.LoginScreen
+import app.example.ui.screens.login.LoginViewModel
 import com.bumble.appyx.navigation.modality.BuildContext
 import com.bumble.appyx.navigation.node.Node
 

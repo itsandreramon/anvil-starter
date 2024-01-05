@@ -1,6 +1,7 @@
 package app.example.di
 
 import app.example.BuildConfig
+import app.example.core.di.AppScope
 import com.squareup.anvil.annotations.ContributesTo
 import dagger.Module
 import dagger.Provides

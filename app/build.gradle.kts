@@ -41,41 +41,19 @@ android {
         buildConfig = true
     }
 
-    kotlinOptions {
-        freeCompilerArgs += "-opt-in=androidx.compose.material3.ExperimentalMaterial3Api"
-    }
-
     composeOptions {
         kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
     }
 }
 
 dependencies {
-    implementation(project(":base"))
+    implementation(project(":core"))
+    implementation(project(":ui"))
 
     implementation(libs.androidx.core)
-    implementation(libs.androidx.activity)
-    implementation(libs.androidx.activity.compose)
-    implementation(libs.androidx.viewmodel)
-    implementation(libs.androidx.viewmodel.compose)
-
-    implementation(libs.appyx.android)
-    implementation(libs.appyx.backstack)
-
-    implementation(libs.anvil.annotations)
-
-    implementation(platform(libs.compose.bom))
-    implementation(libs.compose.ui)
-    implementation(libs.compose.runtime)
-    implementation(libs.compose.foundation)
-    implementation(libs.compose.material3)
-    implementation(libs.compose.material3.icons)
 
     implementation(libs.coroutines.core)
     implementation(libs.coroutines.android)
-
-    implementation(libs.coil.core)
-    implementation(libs.coil.compose)
 
     implementation(libs.timber)
 

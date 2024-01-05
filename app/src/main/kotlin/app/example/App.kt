@@ -1,18 +1,15 @@
 package app.example
 
 import android.app.Application
+import app.example.core.data.AppCoroutineScope
+import app.example.core.di.DaggerSet
+import app.example.core.di.InitializerFunction
 import app.example.di.AppComponent
 import app.example.di.DaggerAppComponent
-import app.example.di.DaggerSet
-import app.example.di.InitializerFunction
-import app.example.session.UserSessionManager
+import app.example.di.UserSessionManager
 import javax.inject.Inject
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
-
-class AppCoroutineScope(
-    private val parentScope: CoroutineScope,
-) : CoroutineScope by parentScope
 
 class App : Application() {
 

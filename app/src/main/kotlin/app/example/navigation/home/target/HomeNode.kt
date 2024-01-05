@@ -4,8 +4,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.ViewModelStoreOwner
 import androidx.lifecycle.viewmodel.compose.viewModel
-import app.example.ui.home.HomeScreen
-import app.example.ui.home.HomeViewModel
+import app.example.ui.screens.home.HomeScreen
+import app.example.ui.screens.home.HomeViewModel
 import com.bumble.appyx.navigation.modality.BuildContext
 import com.bumble.appyx.navigation.node.Node
 

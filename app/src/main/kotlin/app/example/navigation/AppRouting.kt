@@ -30,7 +30,7 @@ class AppNode(
     ),
     visualisation = { BackStackFader(it) },
   ),
-) : ParentNode<AppTarget>(appyxComponent = backStack, buildContext = buildContext) {
+) : ParentNode<AppTarget>(backStack, buildContext) {
 
   @Composable
   override fun View(modifier: Modifier) {

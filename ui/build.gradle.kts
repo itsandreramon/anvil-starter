@@ -1,6 +1,6 @@
 plugins {
-  alias(libs.plugins.android.library)
-  alias(libs.plugins.kotlin.android)
+  alias(libs.plugins.example.android.library)
+  alias(libs.plugins.example.android.library.compose)
   alias(libs.plugins.kotlin.kapt)
   alias(libs.plugins.kotlin.parcelize)
   alias(libs.plugins.anvil)
@@ -8,27 +8,9 @@ plugins {
 
 android {
   namespace = "app.example.ui"
-  compileSdk = Integer.parseInt(project.extra["compileSdk"].toString())
-
-  defaultConfig {
-    minSdk = Integer.parseInt(project.extra["minSdk"].toString())
-  }
-
-  compileOptions {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
-  }
 
   kotlinOptions {
     freeCompilerArgs += "-opt-in=androidx.compose.material3.ExperimentalMaterial3Api"
-  }
-
-  composeOptions {
-    kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
-  }
-
-  buildFeatures {
-    compose = true
   }
 }
 

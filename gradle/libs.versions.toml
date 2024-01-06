@@ -32,6 +32,12 @@ anvil = { id = "com.squareup.anvil", version.ref = "anvil" }
 spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt"}
 
+# plugins defined by this project
+example-android-application = { id = "example.android.application", version = "unspecified" }
+example-android-application-compose = { id = "example.android.application.compose", version = "unspecified" }
+example-android-library = { id = "example.android.library", version = "unspecified" }
+example-android-library-compose = { id = "example.android.library.compose", version = "unspecified" }
+
 [libraries]
 androidx-activity = { module = "androidx.activity:activity-ktx", version.ref = "androidx-activity" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity" }
@@ -65,3 +71,7 @@ anvil-annotations = { module = "com.squareup.anvil:annotations-optional", versio
 timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
 turbine = { module = "app.cash.turbine:turbine", version.ref = "turbine" }
 junit = { module = "junit:junit", version.ref = "junit" }
+
+# included build dependencies
+kotlin-gradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+android-gradlePlugin = { module = "com.android.tools.build:gradle", version.ref = "agp" }

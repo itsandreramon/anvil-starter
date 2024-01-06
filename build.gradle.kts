@@ -14,15 +14,6 @@ plugins {
   alias(libs.plugins.spotless)
 }
 
-allprojects {
-  tasks.withType<KotlinCompile>().configureEach {
-    kotlinOptions {
-      allWarningsAsErrors = true
-      jvmTarget = JavaVersion.VERSION_11.toString()
-    }
-  }
-}
-
 subprojects {
   apply {
     plugin(rootProject.libs.plugins.detekt.get().pluginId)

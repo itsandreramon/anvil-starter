@@ -1,6 +1,7 @@
 @file:Suppress("UnstableApiUsage")
 
 pluginManagement {
+  includeBuild("build-logic")
   repositories {
     google {
       content {
@@ -14,8 +15,7 @@ pluginManagement {
 }
 
 dependencyResolutionManagement {
-  // Fail if any per-project plugin attempts
-  // to source from their own repositories.
+  // Fail if any per-project plugin attempts to source from their own repositories.
   repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
 
   repositories {
@@ -41,6 +41,7 @@ gradleEnterprise {
   }
 }
 
+rootProject.name = "anvil-starter"
 include(":app")
 include(":core")
 include(":ui")

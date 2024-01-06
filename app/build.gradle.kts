@@ -20,10 +20,8 @@ android {
     release {
       isMinifyEnabled = true
 
-      proguardFiles(
-        getDefaultProguardFile("proguard-android-optimize.txt"),
-        "proguard-rules.pro",
-      )
+      val defaultProguardFile = getDefaultProguardFile("proguard-android-optimize.txt")
+      proguardFiles(defaultProguardFile, "proguard-rules.pro")
     }
   }
 

@@ -28,7 +28,6 @@ dependencies {
   implementation(libs.coil.core)
   implementation(libs.coil.compose)
 
-  implementation(platform(libs.compose.bom))
   implementation(libs.compose.ui)
   implementation(libs.compose.runtime)
   implementation(libs.compose.foundation)

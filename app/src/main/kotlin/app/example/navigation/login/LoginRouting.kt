@@ -2,21 +2,18 @@ package app.example.navigation.login
 
 import android.content.Context
 import android.os.Parcelable
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import app.example.di.UserSessionManager
 import app.example.di.inject
 import app.example.navigation.home.HomeRouting
 import app.example.navigation.login.target.LoginNode
 import app.example.ui.screens.login.LoginViewModel
+import app.example.util.ViewModelNode
 import com.bumble.appyx.components.backstack.BackStack
 import com.bumble.appyx.components.backstack.BackStackModel
 import com.bumble.appyx.components.backstack.operation.replace
 import com.bumble.appyx.components.backstack.ui.fader.BackStackFader
-import com.bumble.appyx.navigation.composable.AppyxComponent
 import com.bumble.appyx.navigation.modality.BuildContext
 import com.bumble.appyx.navigation.node.Node
-import com.bumble.appyx.navigation.node.ParentNode
 import javax.inject.Inject
 import kotlinx.parcelize.Parcelize
 import timber.log.Timber
@@ -40,7 +37,7 @@ class LoginRouting(
     ),
     visualisation = { BackStackFader(it) },
   ),
-) : ParentNode<LoginTarget>(appyxComponent = backStack, buildContext = buildContext) {
+) : ViewModelNode<LoginTarget>(buildContext, backStack) {
 
   @Inject lateinit var userSessionManager: UserSessionManager
 
@@ -53,14 +50,6 @@ class LoginRouting(
   override fun onBuilt() {
     super.onBuilt()
     Timber.d("onBuilt LoginRouting")
-  }
-
-  @Composable
-  override fun View(modifier: Modifier) {
-    AppyxComponent(
-      appyxComponent = backStack,
-      modifier = Modifier,
-    )
   }
 
   override fun resolve(interactionTarget: LoginTarget, buildContext: BuildContext): Node {

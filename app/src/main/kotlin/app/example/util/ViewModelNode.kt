@@ -7,8 +7,6 @@ import androidx.lifecycle.ViewModelStore
 import androidx.lifecycle.ViewModelStoreOwner
 import androidx.lifecycle.viewmodel.compose.LocalViewModelStoreOwner
 import com.bumble.appyx.components.backstack.BackStack
-import com.bumble.appyx.interactions.core.AppyxComponent
-import com.bumble.appyx.interactions.core.model.AppyxComponent
 import com.bumble.appyx.navigation.composable.AppyxComponent
 import com.bumble.appyx.navigation.modality.BuildContext
 import com.bumble.appyx.navigation.node.ParentNode

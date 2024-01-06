@@ -17,7 +17,7 @@ plugins {
 allprojects {
   tasks.withType<KotlinCompile>().configureEach {
     kotlinOptions {
-      // allWarningsAsErrors = true
+      allWarningsAsErrors = true
       jvmTarget = JavaVersion.VERSION_11.toString()
     }
   }

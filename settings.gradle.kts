@@ -2,13 +2,9 @@
 
 pluginManagement {
   includeBuild("plugins")
+
   repositories {
-    google {
-      content {
-        includeGroupByRegex(".*google.*")
-        includeGroupByRegex(".*android.*")
-      }
-    }
+    google()
     mavenCentral()
     gradlePluginPortal()
   }
@@ -19,12 +15,7 @@ dependencyResolutionManagement {
   repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
 
   repositories {
-    google {
-      content {
-        includeGroupByRegex(".*google.*")
-        includeGroupByRegex(".*android.*")
-      }
-    }
+    google()
     mavenCentral()
   }
 }
@@ -42,6 +33,7 @@ gradleEnterprise {
 }
 
 rootProject.name = "anvil-starter"
+
 include(":app")
 include(":core")
 include(":ui")

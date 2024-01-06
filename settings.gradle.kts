@@ -26,9 +26,10 @@ plugins {
 
 gradleEnterprise {
   buildScan {
-    publishAlways()
     termsOfServiceAgree = "yes"
     termsOfServiceUrl = "https://gradle.com/terms-of-service"
+    publishAlwaysIf(System.getenv("CI") == "true")
+    publishOnFailure()
   }
 }
 

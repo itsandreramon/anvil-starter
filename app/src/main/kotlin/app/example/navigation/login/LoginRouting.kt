@@ -7,7 +7,7 @@ import androidx.compose.ui.Modifier
 import app.example.di.UserSessionManager
 import app.example.di.inject
 import app.example.navigation.home.HomeRouting
-import app.example.navigation.login.target.LoginNodeBuilder
+import app.example.navigation.login.target.LoginNode
 import app.example.ui.screens.login.LoginViewModel
 import com.bumble.appyx.components.backstack.BackStack
 import com.bumble.appyx.components.backstack.BackStackModel
@@ -65,13 +65,14 @@ class LoginRouting(
 
   override fun resolve(interactionTarget: LoginTarget, buildContext: BuildContext): Node {
     return when (interactionTarget) {
-      LoginTarget.Login -> LoginNodeBuilder(
+      LoginTarget.Login -> LoginNode(
+        buildContext = buildContext,
         viewModelFactory = viewModelFactory,
         onLogin = { id ->
           userSessionManager.createSession(id)
           backStack.replace(LoginTarget.Home)
         },
-      ).build(buildContext)
+      )
 
       LoginTarget.Home -> HomeRouting(
         buildContext = buildContext,

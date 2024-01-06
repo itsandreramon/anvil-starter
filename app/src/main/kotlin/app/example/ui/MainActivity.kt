@@ -15,7 +15,7 @@ class MainActivity : NodeActivity() {
 
     setContent {
       AppTheme {
-        AppContainer(appyxV2IntegrationPoint)
+        AppContainer(this)
       }
     }
   }

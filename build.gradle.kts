@@ -1,7 +1,5 @@
 import com.diffplug.gradle.spotless.SpotlessExtension
-import io.gitlab.arturbosch.detekt.extensions.DetektExtension
 import org.gradle.internal.impldep.org.junit.experimental.categories.Categories.CategoryFilter.exclude
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
   alias(libs.plugins.android.application) apply false

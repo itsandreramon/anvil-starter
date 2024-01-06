@@ -1,4 +1,3 @@
-import app.example.configureAndroidCompose
 import app.example.configureKotlinAndroid
 import com.android.build.api.dsl.ApplicationExtension
 import org.gradle.api.Plugin

@@ -18,16 +18,10 @@ class App : Application() {
 
   @Inject lateinit var initializers: DaggerSet<InitializerFunction>
 
-  @Inject lateinit var dispatchers: CoroutineDispatchers
-
-  private val appCoroutineScope: AppCoroutineScope by lazy {
-    AppCoroutineScope(CoroutineScope(dispatchers.main + SupervisorJob()))
-  }
-
   val appComponent: AppComponent by lazy {
     DaggerAppComponent
       .factory()
-      .create(this, appCoroutineScope)
+      .create(this)
   }
 
   override fun onCreate() {

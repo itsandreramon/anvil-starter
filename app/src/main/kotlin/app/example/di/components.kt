@@ -31,7 +31,6 @@ interface AppComponent {
   interface Factory {
     fun create(
       @BindsInstance app: App,
-      @BindsInstance appCoroutineScope: AppCoroutineScope,
     ): AppComponent
   }
 

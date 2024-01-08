@@ -14,6 +14,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import timber.log.Timber
 
+private const val DB_PARALLELISM = 1
+
 @Module
 @ContributesTo(AppScope::class)
 object AppModule {
@@ -40,7 +42,7 @@ object AppModule {
   fun provideCoroutineDispatchers(): CoroutineDispatchers {
     return CoroutineDispatchers(
       io = Dispatchers.IO,
-      db = Dispatchers.IO.limitedParallelism(1),
+      db = Dispatchers.IO.limitedParallelism(DB_PARALLELISM),
       main = Dispatchers.Main,
     )
   }

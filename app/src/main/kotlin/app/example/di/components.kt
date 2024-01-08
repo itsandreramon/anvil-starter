@@ -104,9 +104,9 @@ interface UserSessionManager {
     }
 
     private fun createUserCoroutineScope(): UserCoroutineScope {
-      return _userCoroutineScope ?: UserCoroutineScope(
-        CoroutineScope(dispatchers.main + SupervisorJob()),
-      ).also { _userCoroutineScope = it }
+      val parentScope = CoroutineScope(dispatchers.main + SupervisorJob())
+      return _userCoroutineScope ?: UserCoroutineScope(parentScope)
+        .also { _userCoroutineScope = it }
     }
   }
 }

@@ -1,7 +1,6 @@
 package app.example.di
 
 import app.example.App
-import app.example.core.data.coroutines.AppCoroutineScope
 import app.example.core.data.coroutines.CoroutineDispatchers
 import app.example.core.data.coroutines.UserCoroutineScope
 import app.example.core.di.AppScope
@@ -18,7 +17,6 @@ import dagger.Component
 import dagger.Subcomponent
 import javax.inject.Inject
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
 import timber.log.Timber

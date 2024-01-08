@@ -1,6 +1,6 @@
 package app.example.core.data.source
 
-import app.example.core.data.AppCoroutineScope
+import app.example.core.data.coroutines.AppCoroutineScope
 import app.example.core.di.AppScope
 import com.squareup.anvil.annotations.optional.SingleIn
 import javax.inject.Inject

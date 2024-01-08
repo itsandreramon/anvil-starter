@@ -1,8 +1,9 @@
 package app.example.di
 
 import app.example.App
-import app.example.core.data.AppCoroutineScope
-import app.example.core.data.UserCoroutineScope
+import app.example.core.data.coroutines.AppCoroutineScope
+import app.example.core.data.coroutines.CoroutineDispatchers
+import app.example.core.data.coroutines.UserCoroutineScope
 import app.example.core.di.AppScope
 import app.example.core.di.UserScope
 import app.example.core.session.UserSession
@@ -78,6 +79,7 @@ interface UserSessionManager {
   @ContributesBinding(AppScope::class)
   class Impl @Inject constructor(
     private val app: App,
+    private val dispatchers: CoroutineDispatchers,
   ) : UserSessionManager {
 
     private var _userCoroutineScope: UserCoroutineScope? = null
@@ -106,7 +108,7 @@ interface UserSessionManager {
 
     private fun createUserCoroutineScope(): UserCoroutineScope {
       return _userCoroutineScope ?: UserCoroutineScope(
-        CoroutineScope(Dispatchers.Main + SupervisorJob()),
+        CoroutineScope(dispatchers.main + SupervisorJob()),
       ).also { _userCoroutineScope = it }
     }
   }

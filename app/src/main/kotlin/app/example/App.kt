@@ -1,7 +1,8 @@
 package app.example
 
 import android.app.Application
-import app.example.core.data.AppCoroutineScope
+import app.example.core.data.coroutines.AppCoroutineScope
+import app.example.core.data.coroutines.CoroutineDispatchers
 import app.example.core.di.DaggerSet
 import app.example.core.di.InitializerFunction
 import app.example.di.AppComponent
@@ -9,7 +10,6 @@ import app.example.di.DaggerAppComponent
 import app.example.di.UserSessionManager
 import javax.inject.Inject
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 
 class App : Application() {
@@ -18,8 +18,10 @@ class App : Application() {
 
   @Inject lateinit var initializers: DaggerSet<InitializerFunction>
 
+  @Inject lateinit var dispatchers: CoroutineDispatchers
+
   private val appCoroutineScope: AppCoroutineScope by lazy {
-    AppCoroutineScope(CoroutineScope(Dispatchers.Main + SupervisorJob()))
+    AppCoroutineScope(CoroutineScope(dispatchers.main + SupervisorJob()))
   }
 
   val appComponent: AppComponent by lazy {

@@ -1,6 +1,6 @@
 package app.example.core.data.source
 
-import app.example.core.data.UserCoroutineScope
+import app.example.core.data.coroutines.UserCoroutineScope
 import app.example.core.di.UserScope
 import app.example.core.session.UserSession
 import com.squareup.anvil.annotations.optional.SingleIn

@@ -28,6 +28,10 @@ android {
   buildFeatures {
     buildConfig = true
   }
+
+  kotlinOptions {
+    freeCompilerArgs += "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi"
+  }
 }
 
 dependencies {

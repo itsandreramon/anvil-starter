@@ -106,7 +106,7 @@ interface UserSessionManager {
 
     private fun createUserCoroutineScope(): UserCoroutineScope {
       return _userCoroutineScope ?: UserCoroutineScope(
-        CoroutineScope(Dispatchers.Main  + SupervisorJob()),
+        CoroutineScope(Dispatchers.Main + SupervisorJob()),
       ).also { _userCoroutineScope = it }
     }
   }

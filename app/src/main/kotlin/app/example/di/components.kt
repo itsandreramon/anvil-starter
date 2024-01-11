@@ -82,7 +82,7 @@ interface UserSessionManager {
     private var _userCoroutineScope: UserCoroutineScope? = null
 
     private val userCoroutineScope: UserCoroutineScope
-      get() = _userCoroutineScope ?: createUserCoroutineScope()
+      get() = createUserCoroutineScope()
 
     override var userComponent: UserComponent? = null
       private set

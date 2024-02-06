@@ -30,6 +30,7 @@ subprojects {
       ktlint().editorConfigOverride(
         mapOf(
           "ktlint_standard_filename" to "disabled",
+          "ktlint_standard_property-naming" to "disabled",
           "ktlint_standard_no-empty-first-line-in-class-body" to "disabled",
           "ktlint_function_naming_ignore_when_annotated_with" to "Composable",
         ),

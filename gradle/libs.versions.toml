@@ -11,7 +11,7 @@ androidx-appcompat = "1.6.1"
 compose-bom = "2024.02.00"
 compose-compiler = "1.5.7"
 
-appyx = "2.0.0-alpha09"
+appyx = "2.0.0-alpha10"
 coroutines = "1.8.0"
 coil = "2.5.0"
 dagger = "2.50"

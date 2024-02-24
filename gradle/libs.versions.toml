@@ -13,7 +13,7 @@ compose-compiler = "1.5.7"
 
 appyx = "2.0.0-alpha09"
 coroutines = "1.8.0"
-coil = "2.5.0"
+coil = "2.6.0"
 dagger = "2.50"
 anvil = "2.4.9"
 timber = "5.0.1"

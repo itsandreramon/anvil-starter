@@ -8,7 +8,7 @@ androidx-lifecycle = "2.7.0"
 androidx-activity = "1.8.2"
 androidx-appcompat = "1.6.1"
 
-compose-bom = "2024.02.00"
+compose-bom = "2024.03.00"
 compose-compiler = "1.5.7"
 
 appyx = "2.0.0-alpha09"

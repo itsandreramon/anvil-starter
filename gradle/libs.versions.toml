@@ -20,7 +20,7 @@ timber = "5.0.1"
 turbine = "1.0.0"
 junit = "4.13.2"
 spotless = "6.23.3"
-detekt = "1.23.5"
+detekt = "1.23.6"
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
